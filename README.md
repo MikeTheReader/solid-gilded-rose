@@ -28,6 +28,10 @@ should have figured that out from some of the tests. Seems like an SRP violation
 Extracted all the item-type logic to their own QualityCalculator objects. Have a structure that looks like a factory
 in there, so I'll move that in the next refactor.
 
+*third_refacto* - Pull items into a factor. Directly addresses the Dependency Inversion Principle, in that the
+GildedRose class no longer has to know about the concretions of the quality calculators. May eventually move these
+into something else so they are more closely tied to the item names themselves and favor composition over this
+factory approach, but it works for now.
 
 ## Gilded Rose Requirements Specification
 
