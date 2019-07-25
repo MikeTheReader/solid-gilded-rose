@@ -1,6 +1,5 @@
-import { Item, AGED_BRIE, BACKSTAGE_PASS, SULFURUS } from './item';
+import { Item } from './item';
 import {
-    IQualityCalculator,
     QualityCalculatorFactory
 } from './quality';
 
