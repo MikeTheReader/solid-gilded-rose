@@ -1,25 +1,25 @@
 import { Item, AGED_BRIE, BACKSTAGE_PASS, SULFURUS } from './item';
 
 
-export class QualityCalculatorFactory {
-  static getQualityCalculator(item: Item): IQualityCalculator {
+export class QualityAdjusterFactory {
+  static getQualityAdjuster(item: Item): IQualityAdjuster {
     switch (item.name) {
       case AGED_BRIE:
-        return new AgedBrieQualityCalculator();
+        return new AgedBrieQualityAdjuster();
       case BACKSTAGE_PASS:
-        return new BackstagePassQualityCalculator();
+        return new BackstagePassQualityAdjuster();
       case SULFURUS:
-        return new SulfurusQualityCalculator();
+        return new SulfurusQualityAdjuster();
       default:
-        return new GenericQualityCalculator();
+        return new GenericQualityAdjuster();
     }
   }
 }
-export interface IQualityCalculator {
+export interface IQualityAdjuster {
   adjustQuality(item: Item);
 }
 
-class GenericQualityCalculator {
+class GenericQualityAdjuster {
   adjustQuality(item: Item) {
       if (item.quality > 0) {
           item.quality = item.quality - 1
@@ -32,13 +32,13 @@ class GenericQualityCalculator {
   }
 }
 
-class SulfurusQualityCalculator implements IQualityCalculator {
+class SulfurusQualityAdjuster implements IQualityAdjuster {
   adjustQuality(item: Item) {
       // Do nothing
   }
 }
 
-class AgedBrieQualityCalculator implements IQualityCalculator {
+class AgedBrieQualityAdjuster implements IQualityAdjuster {
   adjustQuality(item: Item) {
       if (item.quality < 50) {
           item.quality = item.quality + 1;
@@ -51,7 +51,7 @@ class AgedBrieQualityCalculator implements IQualityCalculator {
   }
 }
 
-class BackstagePassQualityCalculator implements IQualityCalculator {
+class BackstagePassQualityAdjuster implements IQualityAdjuster {
   adjustQuality(item: Item) {
       if (item.quality < 50) {
           item.quality = item.quality + 1
