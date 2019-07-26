@@ -1,7 +1,5 @@
 import { Item } from './item';
-import {
-    QualityCalculatorFactory
-} from './quality';
+import { QualityCalculatorFactory } from './quality';
 
 export class GildedRose {
     items: Array<Item>;
