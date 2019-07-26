@@ -6,7 +6,7 @@
     "precompile": "rimraf app/**/*.js test/**/*.js",
     "compile": "tsc",
     "pretest": "rimraf app/**/*.js test/**/*.js",
-    "test": "mocha --opts ./test/mocha.opts"
+    "test": "nyc mocha"
   },
   "license": "MIT",
   "private": true,
